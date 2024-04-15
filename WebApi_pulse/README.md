@@ -13,20 +13,20 @@ docker images --all
 docker rmi pv116-api
 
 docker login
-docker tag pv116-api:latest novakvova/pv116-api:latest
-docker push novakvova/pv116-api:latest
+docker tag pv116-api:latest pashtetmpi/pv116-api:latest
+docker push pashtetmpi/pv116-api:latest
 
-docker pull novakvova/pv116-api:latest
+docker pull pashtetmpi/pv116-api:latest
 docker ps -a
-docker run -d --restart=always --name pv116_container -p 5085:8080 novakvova/pv116-api
+docker run -d --restart=always --name pv116_container -p 5085:8080 pashtetmpi/pv116-api
 
 
-docker pull novakvova/pv116-api:latest
+docker pull pashtetmpi/pv116-api:latest
 docker images --all
 docker ps -a
 docker stop pv116_container
 docker rm pv116_container
-docker run -d --restart=always --name pv116_container -p 5085:8080 novakvova/pv116-api
+docker run -d --restart=always --name pv116_container -p 5085:8080 pashtetmpi/pv116-api
 ```
 
 ```nginx options /etc/nginx/sites-available/default
