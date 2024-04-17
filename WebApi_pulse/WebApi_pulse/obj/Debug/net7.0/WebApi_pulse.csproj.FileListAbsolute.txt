@@ -77,3 +77,16 @@ D:\Step\Android_\WebApi_pulse\WebApi_pulse\bin\Debug\net7.0\Core.dll
 D:\Step\Android_\WebApi_pulse\WebApi_pulse\bin\Debug\net7.0\Infrastructure.dll
 D:\Step\Android_\WebApi_pulse\WebApi_pulse\bin\Debug\net7.0\Core.pdb
 D:\Step\Android_\WebApi_pulse\WebApi_pulse\bin\Debug\net7.0\Infrastructure.pdb
+D:\Step\Android_\WebApi_pulse\WebApi_pulse\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Step\Android_\WebApi_pulse\WebApi_pulse\bin\Debug\net7.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\Step\Android_\WebApi_pulse\WebApi_pulse\bin\Debug\net7.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\Step\Android_\WebApi_pulse\WebApi_pulse\bin\Debug\net7.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\Step\Android_\WebApi_pulse\WebApi_pulse\bin\Debug\net7.0\Microsoft.Extensions.Identity.Core.dll
+D:\Step\Android_\WebApi_pulse\WebApi_pulse\bin\Debug\net7.0\Microsoft.Extensions.Identity.Stores.dll
+D:\Step\Android_\WebApi_pulse\WebApi_pulse\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
+D:\Step\Android_\WebApi_pulse\WebApi_pulse\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Step\Android_\WebApi_pulse\WebApi_pulse\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+D:\Step\Android_\WebApi_pulse\WebApi_pulse\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+D:\Step\Android_\WebApi_pulse\WebApi_pulse\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Step\Android_\WebApi_pulse\WebApi_pulse\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+D:\Step\Android_\WebApi_pulse\WebApi_pulse\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
