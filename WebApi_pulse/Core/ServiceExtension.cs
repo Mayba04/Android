@@ -1,4 +1,5 @@
-﻿using Core.Interfaces;
+﻿using Core.Entities;
+using Core.Interfaces;
 using Core.Services;
 using FluentValidation;
 using FluentValidation.AspNetCore;
@@ -11,6 +12,7 @@ namespace Core
         public static void AddCustomService(this IServiceCollection service)
         {
             service.AddScoped<ICategoryService, CategoryService>();
+            service.AddScoped<IJwtTokenService, JwtTokenService>();
         }
         public static void AddValidator(this IServiceCollection service)
         {
