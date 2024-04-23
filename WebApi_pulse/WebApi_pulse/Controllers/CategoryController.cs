@@ -28,7 +28,7 @@ namespace WebApi_pulse.Controllers
         }
 
         [HttpPost("CreateCategory")]
-        public async Task<IActionResult> CreateProduct(CreateCategoryDTO createCategoryDTO)
+        public async Task<IActionResult> CreateProduct([FromForm]CreateCategoryDTO createCategoryDTO)
         {
             await _category.CreateAsync(createCategoryDTO);
             return Ok();
@@ -42,7 +42,7 @@ namespace WebApi_pulse.Controllers
         }
 
         [HttpPut("EditCategory")]
-        public async Task<IActionResult> EditProduct(EditCategoryDTO editCategoryDTO)
+        public async Task<IActionResult> EditProduct([FromForm] EditCategoryDTO editCategoryDTO)
         {
             await _category.EditAsync(editCategoryDTO);
             return Ok();
