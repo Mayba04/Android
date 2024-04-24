@@ -1,21 +1,15 @@
 package com.example.andriod;
 
-
+import androidx.appcompat.app.AlertDialog;
 
 import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.ImageView;
+import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 import com.example.andriod.category.CategoriesAdapter;
 import com.example.andriod.dto.category.CategoryItemDTO;
 import com.example.andriod.services.ApplicationNetwork;
@@ -50,6 +44,12 @@ public class MainActivity extends BaseActivity {
         rcCategories.setHasFixedSize(true);
         rcCategories.setLayoutManager(new GridLayoutManager(this, 1, RecyclerView.VERTICAL, false));
 
+        loadList();
+
+    }
+
+    void loadList()
+    {
         ApplicationNetwork
                 .getInstance()
                 .getCategoriesApi()
@@ -59,7 +59,7 @@ public class MainActivity extends BaseActivity {
                     public void onResponse(Call<List<CategoryItemDTO>> call, Response<List<CategoryItemDTO>> response) {
                         List<CategoryItemDTO> items = response.body();
                         //Log.d("--List categories--", String.valueOf(items.size()));
-                        CategoriesAdapter ca = new CategoriesAdapter(items);
+                        CategoriesAdapter ca = new CategoriesAdapter(items, MainActivity.this::onClickDeleteCategory);
                         rcCategories.setAdapter(ca);
                     }
                     @Override
@@ -67,5 +67,35 @@ public class MainActivity extends BaseActivity {
 
                     }
                 });
+    }
+
+    private void onClickDeleteCategory(CategoryItemDTO category) {
+        //Toast.makeText(this, category.getName(), Toast.LENGTH_LONG).show();
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setMessage("Видалити "+ category.getName()+"?")
+                .setPositiveButton("Так", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        ApplicationNetwork.getInstance()
+                                .getCategoriesApi()
+                                .delete(category.getId())
+                                .enqueue(new Callback<Void>() {
+                                    @Override
+                                    public void onResponse(Call<Void> call, Response<Void> response) {
+                                        if(response.isSuccessful()) {
+                                            loadList();
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onFailure(Call<Void> call, Throwable throwable) {
+
+                                    }
+                                });
+
+                    }
+                })
+                .setNegativeButton("Ні", null) // No action when user clicks No
+                .show();
     }
 }
