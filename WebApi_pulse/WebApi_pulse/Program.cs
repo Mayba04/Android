@@ -19,23 +19,10 @@ builder.Services.AddRepository();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddCustomService();
 builder.Services.AddValidator();
-
 builder.Services.AddAutoMapper();
 
-builder.Services.AddCustomService();
-
-builder.Services.AddIdentity<UserEntity, RoleEntity>(options =>
-{
-    options.Stores.MaxLengthForKeys = 128;
-    options.Password.RequireDigit = false;
-    options.Password.RequiredLength = 5;
-    options.Password.RequireNonAlphanumeric = false;
-    options.Password.RequireUppercase = false;
-    options.Password.RequireLowercase = false;
-})
-    .AddEntityFrameworkStores<DataBaseContext>()
-    .AddDefaultTokenProviders();
 
 var app = builder.Build();
 

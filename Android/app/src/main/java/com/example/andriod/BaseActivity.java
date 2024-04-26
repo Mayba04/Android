@@ -7,8 +7,13 @@ import android.view.MenuItem;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.andriod.category.CategoryCreateActivity;
+import com.example.andriod.utils.CommonUtils;
 
 public class BaseActivity extends AppCompatActivity {
+
+    public BaseActivity() {
+        CommonUtils.setContext(this);
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.head, menu);
